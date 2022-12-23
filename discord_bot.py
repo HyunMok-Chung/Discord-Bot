@@ -10,7 +10,7 @@ class ChatBot(discord.Client):
         print("Ready")
         
     async def on_message(self,message):
-        if message.author.bot: #메시지 보낸얘가 봇이면 어떠한 작업도 하지 않음
+        if message.author.bot: #메시지 보낸 곳이 봇이면 어떠한 작업도 하지 않음
             return None
         
         if message.content == "!제작자":
@@ -19,7 +19,7 @@ class ChatBot(discord.Client):
             await channel.send(msg)
             return None
         if message.content == "!로테이션":
-            rotation = riot.RiotData("HongJiMin").getChampRotation() #추후 수정
+            rotation = riot.RiotData().getChampRotation() #추후 수정
             channel = message.channel
             print(rotation)
             await channel.send(rotation)
